@@ -1,0 +1,61 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <script defer src="/EPCH/public/js/access.js" ></script>
+    <form >
+        <div class="form-group">
+            <label for="formGroupExampleInput">Access level title</label>
+            <input type="text" class="form-control" id="AddAccessInput" placeholder="Title of access level">
+            <div class="form-group">
+                <div id="errorInput" style=" display: none;" class="message alert alert-danger">Title of access level is not correct!</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div id="AddAccessButton"  data-access-id="{{access.accessID }}" class="btn btn-primary">Add access level</div>
+        </div>
+
+        <div class="form-group">
+            <div id="errorMessage" style=" display: none;" class="message alert alert-danger">Add error !</div>
+        </div>
+
+        <div class="form-group">
+            <div id="successMessage"  style=" display: none;" class="message alert alert-success">Access level successfully added!</div>
+        </div>
+
+    </form>
+
+    <table class="table" id="AccessesTable" >
+        <thead>
+        <tr data-access-id = "{{access.accessID }}">
+            <th scope="col">#</th>
+            <th scope="col">Title of access level</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for access in accesses %}
+            <tr data-access-id = "{{  access.accessID }}">
+                <td>{{ access.accessID }}</td>
+                <td>{{ access.accessTitle }}</td>
+                <td>
+                    <button   data-access-id="{{  access.accessID }}" data-access-name="{{  access.accessTitle }}" class="btn btn-danger" >Delete</button>
+                </td>
+                <td>
+                    <a  href="/EPCH/public/accesses/update_page/{{  access.accessID }}"  class="btn btn-primary update" >Update</a>
+                </td>
+            </tr>
+
+
+        {%endfor  %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

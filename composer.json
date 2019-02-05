@@ -1,0 +1,17 @@
+{
+    "name": "elena/epch",
+    "authors": [
+        {
+            "name": "elena",
+            "email": "elenatrehub1@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\":"app/"
+        }
+    }
+}

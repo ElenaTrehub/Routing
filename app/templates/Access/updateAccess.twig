@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <script defer src="/EPCH/public/js/access.js" ></script>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Access level title</label>
+            <input value="{{ access.accessTitle }}" type="text" class="form-control" id="UpdateAccessInput" placeholder="Title">
+            <div class="form-group">
+                <div id="errorInput" style=" display: none;" class="message alert alert-danger">Title of access level is not correct!</div>
+            </div>
+        </div>
+
+
+        <div class="form-group" id="UpdateAccessButton" data-access-id="{{  access.accessID }}" >
+            <div   class="btn btn-primary">Update</div>
+        </div>
+        <div class="form-group">
+            <div id="errorMessage" style=" display: none;" class="message alert alert-danger">Error updating!</div>
+        </div>
+
+        <div class="form-group">
+            <div id="successMessage"  style=" display: none;" class="message alert alert-success">Access level successfully updated!</div>
+        </div>
+    </form>
+
+
+
+
+{% endblock %}
